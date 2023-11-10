@@ -25,7 +25,8 @@ const default_config = {
     "q": "config-tab",
   },
   disabled: [],
-  localIcons: false,
+  // If you want to reduce the loading time of the icons, you could install the icon font locally and activate the option "localIcons": true in the config to disable the remote styles.
+  localIcons: true,
   fastlink: "https://chat.openai.com/",
   openLastVisitedTab: true,
   tabs: [
