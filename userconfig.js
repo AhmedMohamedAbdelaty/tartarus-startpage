@@ -3,17 +3,18 @@ let saved_config = JSON.parse(localStorage.getItem("CONFIG"));
 const default_config = {
   overrideStorage: true,
   temperature: {
-    location: 'Matão, São Paulo',
+    location: 'Cairo',
     scale: "C",
   },
   clock: {
-    format: "h:i p",
+    // format: "h:i p - a e b ",
+    // format: "e:i p",
+    format: "e:i p - a e b ",
     iconColor: "#ea6962",
   },
   search: {
     engines: {
       g: ["https://google.com/search?q=", "Google"],
-      d: ["https://duckduckgo.com/html?q=", "DuckDuckGo"],
       y: ["https://youtube.com/results?search_query=", "Youtube"],
       r: ["https://www.reddit.com/search/?q=", "Reddit"],
       p: ["https://www.pinterest.es/search/pins/?q=", "Pinterest"],
@@ -28,6 +29,71 @@ const default_config = {
   fastlink: "https://chat.openai.com/",
   openLastVisitedTab: true,
   tabs: [
+    {
+      name: "dev",
+      background_url: "src/img/banners/cbg-7.gif",
+      categories: [
+        {
+          name: "projects",
+          links: [
+            {
+              name: "github",
+              url: "https://github.com/",
+              icon: "brand-github",
+              icon_color: "#7daea3",
+            },
+            {
+              name: "frontendmentor",
+              url: "https://www.frontendmentor.io/",
+              icon: "brand-css3",
+              icon_color: "#e78a4e",
+            }
+          ],
+        },
+        {
+          name: "productivity",
+          links: [
+            {
+              name: "notion",
+              url: "https://www.notion.so/am0103738/Task-Manager-777ac718383b40ebbc009242d1fb6deb",
+              icon: "brand-notion",
+              icon_color: "#e9ebd8",
+            },
+            {
+              name: "tracker",
+              url: "https://docs.google.com/spreadsheets/d/1ZalHXClEXIX9VPT3fZB80U_ce8JDMSL0Ny5_yJd9pYI/edit#gid=501432051",
+              icon: "square-rounded-check",
+              icon_color: "#5dbf56",
+            },
+            {
+              name:"keep",
+              url:"https://keep.google.com/u/0/",
+              icon:"note",
+              icon_color:"#a3ab16",
+            }
+
+          ],
+        },
+        {
+          name: "problem solving",
+          links: [
+            {
+              name: "hackerrank",
+              url: "https://www.hackerrank.com/dashboard",
+              icon: "code-asterix",
+              icon_color: "#a9b665",
+            },
+            {
+              name: "leetcode",
+              url: "https://leetcode.com/",
+              icon: "brand-leetcode",
+              icon_color: "#e78a4e",
+            }
+          ],
+        },
+      ],
+
+    },
     {
       name: "chi ll",
       background_url: "src/img/banners/cbg-2.gif",
@@ -59,21 +125,21 @@ const default_config = {
             icon_color: "#ea6962",
           },
           {
-            name: "twitch",
-            url: "https://www.twitch.tv/",
-            icon: "brand-twitch",
-            icon_color: "#d3869b",
+            name: "linkedin",
+            url: "https://www.linkedin.com/feed/",
+            icon: "brand-linkedin",
+            icon_color: "#7daea3",
           },
+          {
+            name: "curious cat",
+            url: "https://curiouscat.live/",
+            icon: "hexagon-letter-c",
+            icon_color: "#e78a3d",
+          }
         ],
       }, {
-        name: "Games",
+        name: "Touch Typing",
         links: [
-          {
-            name: "chess",
-            url: "https://www.chess.com/home",
-            icon: "chess-queen-filled",
-            icon_color: "#a9b665",
-          },
           {
             name: "monkeytype",
             url: "https://monkeytype.com/",
@@ -81,29 +147,31 @@ const default_config = {
             icon_color: "#e78a4e",
           },
           {
-            name: "tetris",
-            url: "https://tetris.com/",
-            icon: "brand-apple-arcade",
-            icon_color: "#ea6962",
-          },
+            name: "keybr",
+            url: "https://www.keybr.com/",
+            icon: "command",
+            icon_color: "#157c9e",
+
+          }
         ],
       }, {
-        name: "Video",
+        name: "Audio",
         links: [
           {
-            name: "disney+",
-            url: "https://www.disneyplus.com/home",
-            icon: "brand-disney",
-            icon_color: "#7daea3",
+            name: "soundcloud",
+            url: "https://soundcloud.com/",
+            icon: "brand-soundcloud",
+            icon_color: "#ea6962",
           },
           {
-            name: "primevideo",
-            url: "https://www.primevideo.com/region/eu/?ref_=dv_web_unknown",
-            icon: "brand-amazon",
-            icon_color: "#7daea3",
+            name: "quranpedia",
+            url: "https://quranpedia.net/",
+            icon: "pray",
+            icon_color: "#a9b665",
           },
         ],
       }],
+            
     },
     {
       name: "design",
@@ -119,23 +187,17 @@ const default_config = {
               icon_color: "#ea6962",
             },
             {
-              name: "artstation",
-              url: "https://www.artstation.com/?sort_by=community",
-              icon: "chart-area",
-              icon_color: "#7daea3",
+              name: "behance",
+              url: "https://www.behance.net/",
+              icon: "brand-behance",
+              icon_color: "#a9b665",
             },
             {
-              name: "leonardo ai",
-              url: "https://app.leonardo.ai/",
-              icon: "brand-openai",
-              icon_color: "#89b482",
-            },
-            {
-              name: "dribble",
-              url: "https://dribbble.com/following",
-              icon: "brand-dribbble-filled",
-              icon_color: "#d3869b",
-            },
+              name: "codepen",
+              url: "https://codepen.io/",
+              icon: "brand-codepen",
+              icon_color: "#e78a4e",
+            }
           ],
         },
         {
@@ -148,121 +210,16 @@ const default_config = {
               icon_color: "#d3869b",
             },
             {
-              name: "uxpro",
-              url: "https://uxpro.cc/",
-              icon: "components",
-              icon_color: "#a9b665",
-            },
-            {
-              name: "colorhunt",
-              url: "https://colorhunt.co/",
-              icon: "color-picker",
-              icon_color: "#ea6962",
-            },
-            {
-              name: "adobe color",
-              url: "https://color.adobe.com/es/create/color-wheel",
-              icon: "brand-adobe",
-              icon_color: "#7daea3",
-            },
-            {
-              name: "terminalsexy",
-              url: "https://terminal.sexy",
-              icon: "prompt",
-              icon_color: "#e78a4e",
-            },
+              name:"icons8",
+              url:"https://icons8.com/",
+              icon:"aperture",
+              icon_color:"#853282",
+            }
           ],
         },
         {
           name: "resources 3d",
           links: [
-            {
-              name: "thingiverse",
-              url: "https://www.thingiverse.com/",
-              icon: "circle-letter-t",
-              icon_color: "#7daea3",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: "dev",
-      background_url: "src/img/banners/cbg-7.gif",
-      categories: [
-        {
-          name: "repositories",
-          links: [
-            {
-              name: "github",
-              url: "https://github.com/",
-              icon: "brand-github",
-              icon_color: "#7daea3",
-            },
-            {
-              name: "gitlab",
-              url: "https://gitlab.com/",
-              icon: "brand-gitlab",
-              icon_color: "#e78a4e",
-            },
-          ],
-        },
-        {
-          name: "resources",
-          links: [
-            {
-              name: "phind",
-              url: "https://www.phind.com/",
-              icon: "brand-openai",
-              icon_color: "#89b482",
-            },
-            {
-              name: "flutter",
-              url: "https://docs.flutter.dev/ui",
-              icon: "brand-flutter",
-              icon_color: "#7daea3",
-            },
-            {
-              name: "hacktricks",
-              url: "https://book.hacktricks.xyz/welcome/readme",
-              icon: "biohazard",
-              icon_color: "#ea6962",
-            },
-            {
-              name: "vscode",
-              url: "https://vscode.dev/",
-              icon: "brand-vscode",
-              icon_color: "#7daea3",
-            },
-          ],
-        },
-        {
-          name: "challenges",
-          links: [
-            {
-              name: "hackthebox",
-              url: "https://app.hackthebox.com",
-              icon: "box",
-              icon_color: "#a9b665",
-            },
-            {
-              name: "cryptohack",
-              url: "https://cryptohack.org/challenges/",
-              icon: "brain",
-              icon_color: "#e78a4e",
-            },
-            {
-              name: "tryhackme",
-              url: "https://tryhackme.com/dashboard",
-              icon: "brand-onedrive",
-              icon_color: "#ea6962",
-            },
-            {
-              name: "hackerrank",
-              url: "https://www.hackerrank.com/dashboard",
-              icon: "code-asterix",
-              icon_color: "#a9b665",
-            },
           ],
         },
       ],
@@ -272,7 +229,7 @@ const default_config = {
       background_url: "src/img/banners/cbg-9.gif",
       categories: [
         {
-          name: "mails",
+          name: "connect",
           links: [
             {
               name: "gmail",
@@ -280,11 +237,6 @@ const default_config = {
               icon: "brand-gmail",
               icon_color: "#ea6962",
             },
-          ],
-        },
-        {
-          name: "storage",
-          links: [
             {
               name: "drive",
               url: "https://drive.google.com/drive/u/0/my-drive",
@@ -292,28 +244,45 @@ const default_config = {
               icon_color: "#e78a4e",
             },
             {
-              name: "dropbox",
-              url: "https://www.dropbox.com/h?role=personal&di=left_nav",
-              icon: "box-seam",
-              icon_color: "#7daea3",
-            },
-            {
-              name: "fotos",
-              url: "https://photos.google.com/u/1",
-              icon: "photo-filled",
-              icon_color: "#ea6962",
-            },
-          ],
-        },
-        {
-          name: "stuff",
-          links: [
-            {
               name: "linkedin",
               url: "https://www.linkedin.com/feed/",
               icon: "brand-linkedin",
               icon_color: "#7daea3",
             },
+          ],
+        },
+        {
+          name: "useful sites",
+          links: [
+            {
+              name: "claude",
+              url: "https://claude.ai/chats",
+              icon: "brain",
+              icon_color: "#c79777",
+            },
+            {
+              name: "Bard",
+              url: "https://bard.google.com/chat",
+              icon: "brand-google",
+              icon_color: "#6184d3",
+            },
+            {
+              name: "Bing",
+              url: "https://www.bing.com/search?form=MY0291&OCID=MY0291&q=Bing+AI&showconv=1",
+              icon: "brand-bing",
+              icon_color: "#a9b665",
+            }
+          ],
+        },
+        {
+          name: "entertainment",
+          links: [
+              {
+                name:"Wallhaven",
+                url:"https://wallhaven.cc/",
+                icon:"wallpaper",
+                icon_color:"#cacaca",
+              },
           ],
         },
       ],
